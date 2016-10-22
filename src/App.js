@@ -1,7 +1,40 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+function get_mock_data(){
+  fetch('/mock_data.json')  
+    .then((response) => {  
+      response.json().then((data)=> {
+        console.log(data);
+      });
+    });
+};
+
+class Row extends Component {
   render() {
+    // Note: I tried to use let data = this.props.train
+    // but apparently that screws up at binding time so I spell
+    // it out here.
+    return (
+      <tr>
+        <td>{this.props.train.time}</td>
+        <td>{this.props.train.origin}</td>
+        <td>{this.props.train.destination}</td>
+        <td>{this.props.train.train_number}</td>
+        <td>{this.props.train.track_number}</td>
+        <td>{this.props.train.status}</td>
+      </tr>
+    )
+  }
+};
+
+class App extends Component {
+
+  render() {
+
+    let rows = [];
+    this.props.trains.forEach( (train) => {
+      rows.push(<Row train={train} key={train.number} />);
+    });
     return (
       <div className="container">
         <div className="panel panel-default">
@@ -17,14 +50,7 @@ class App extends Component {
               <th>Track #</th>
               <th>status</th>
             </tr>
-            <tr>
-              <td>6:45 PM</td>
-              <td>North Station</td>
-              <td>Portland, ME</td>
-              <td>697</td>
-              <td>TBD</td>
-              <td>ON TIME</td>
-            </tr>
+            <tbody>{rows}</tbody>
           </table>
         </div>
       </div>
