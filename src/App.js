@@ -6,11 +6,12 @@ class App extends Component {
       <div className="container">
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h1>North Station Information</h1>
+            <h1>Departure Board/h1>
           </div>
           <table className="table">
             <tr>
               <th>Time</th>
+              <th>Origin</th>
               <th>Destination</th>
               <th>Train #</th>
               <th>Track #</th>
@@ -18,6 +19,7 @@ class App extends Component {
             </tr>
             <tr>
               <td>6:45 PM</td>
+              <td>North Station</td>
               <td>Portland, ME</td>
               <td>697</td>
               <td>TBD</td>
