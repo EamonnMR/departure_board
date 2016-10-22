@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 
-function get_mock_data(){
-  fetch('/mock_data.json')  
-    .then((response) => {  
-      response.json().then((data)=> {
-        console.log(data);
-      });
-    });
-};
-
 class Row extends Component {
   render() {
     // Note: I tried to use let data = this.props.train
     // but apparently that screws up at binding time so I spell
     // it out here.
+    // 
+    // Wonder what the best practice is...
     return (
       <tr>
         <td>{this.props.train.time}</td>
