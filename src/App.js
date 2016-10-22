@@ -6,7 +6,7 @@ class App extends Component {
       <div className="container">
         <div className="panel panel-default">
           <div className="panel-heading">
-            <h1>Departure Board/h1>
+            <h1>Departure Board</h1>
           </div>
           <table className="table">
             <tr>
