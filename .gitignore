@@ -13,3 +13,15 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+# Pheonix
+/_build
+/deps
+/doc
+/tmp
+/node_modules
+
+/installer/_build
+/installer/tmp
+
+erl_crash.dump
