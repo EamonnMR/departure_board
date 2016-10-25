@@ -9,29 +9,10 @@
     apt: name={{item}} state=installed update_cache=yes
     with_items:
     - "nginx"
-    - "esl-erlang"
-    - "inotify-tools"
-    - "elixir"
-    - "postgresql-client"
-    - "postgresql"
-    - "postgresql-contrib"
 
-  - name: 
-    copy: src=./ dest=/var/www
+  - name: Upload build to server
+    copy: src=../build/ dest=/var/www/html
 
-  - name:
-    shell:
-     >
-       # Postgres: ALTER USER Postgres WITH PASSWORD 'postgres';
-       # ecto.create
-       #
+  - name: Upload server config
+    copy: 
 
-  - name: Install mix stuff
-    shell: >
-      mix local.hex
-      mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
-
-  - name: NPM stuff
-    shell: >
-      npm install
-      npm run build  
