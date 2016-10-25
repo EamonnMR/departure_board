@@ -17,10 +17,14 @@ defmodule DepartureBoard.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-  end
 
+
+  end
+  
+  
   # Other scopes may use custom stacks.
-  # scope "/api", DepartureBoard do
-  #   pipe_through :api
-  # end
+  scope "/api", DepartureBoard do
+    pipe_through :api
+    resources "/departures", DeparturesController, except: [:new, :edit]
+  end
 end
