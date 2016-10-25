@@ -18,3 +18,20 @@
 
   - name: 
     copy: src=./ dest=/var/www
+
+  - name:
+    shell:
+     >
+       # Postgres: ALTER USER Postgres WITH PASSWORD 'postgres';
+       # ecto.create
+       #
+
+  - name: Install mix stuff
+    shell: >
+      mix local.hex
+      mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+
+  - name: NPM stuff
+    shell: >
+      npm install
+      npm run build  
