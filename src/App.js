@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Row extends Component {
   render() {
     // Note: I tried to use let data = this.props.train
@@ -9,12 +10,12 @@ class Row extends Component {
     // Wonder what the best practice is...
     return (
       <tr>
-        <td>{this.props.train.time}</td>
-        <td>{this.props.train.origin}</td>
-        <td>{this.props.train.destination}</td>
-        <td>{this.props.train.train_number}</td>
-        <td>{this.props.train.track_number}</td>
-        <td>{this.props.train.status}</td>
+        <td>{this.props.train.ScheduledTime}</td>
+        <td>{this.props.train.Origin}</td>
+        <td>{this.props.train.Destination}</td>
+        <td>{this.props.train.Trip}</td>
+        <td>{this.props.train.Track ? this.props.train.Track : "TBD"}</td>
+        <td>{this.props.train.Status}</td>
       </tr>
     )
   }
