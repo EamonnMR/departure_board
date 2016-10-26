@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 
+function time_format(unix_time) {
+  let date = new Date( unix_time * 1000 );
+  return date.toLocaleTimeString();
+}   
+
 class Row extends Component {
   render() {
-    // Note: I tried to use let data = this.props.train
-    // but apparently that screws up at binding time so I spell
-    // it out here.
-    // 
-    // Wonder what the best practice is...
     return (
       <tr>
-        <td>{this.props.train.ScheduledTime}</td>
+        <td>{time_format(this.props.train.ScheduledTime)}</td>
         <td>{this.props.train.Origin}</td>
         <td>{this.props.train.Destination}</td>
         <td>{this.props.train.Trip}</td>
