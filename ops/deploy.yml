@@ -11,8 +11,10 @@
     - "nginx"
 
   - name: Upload build to server
-    copy: src=../build/ dest=/var/www/html
+    copy: src=../build/ dest=/var/www/html/
 
-  - name: Upload server config
-    copy: 
+  - name: Upload server conf
+    copy: src=etc/nginx/sites-enabled/departures.conf dest=/etc/nginx/sites-enabled/departures.conf
 
+  - name: Ensure that new nginx config is applied
+    service: name=nginx state=restarted
