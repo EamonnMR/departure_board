@@ -8,17 +8,14 @@ function render_from_csv(){
   fetch('/api/Departures.csv').then((response) => {
     response.text().then( text => {
 	    csv( text ).then( data => {
-        console.log(data);
         ReactDOM.render(
           <App trains={data} />,
           document.getElementById('root')
-        );
-
+        ); 
+        setTimeout(render_from_csv, 30000);
       })
     })
   })
-  
-  // TODO: sleep 30000 ms; render_from_csv()
 }
 
 render_from_csv();
